@@ -1,38 +1,214 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  width: 100%;
   min-height: 100vh;
+  background: #eee;
+}
+
+header {
+  width: 100%;
+  background: #800080;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 2rem;
   display: flex;
+  flex-wrap: wrap;
+  transition: all 0.2s;
+}
+header > .logo {
+  font-size: 4rem;
+}
+header > nav {
+  margin-left: auto;
+}
+nav > ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  font-size: 2rem;
+  padding: 1rem;
+}
+.content {
+  background: #222;
+  width: 100%;
+  min-height: 90vh;
+  color: #fff;
+  padding: 3rem 6rem;
+  transition: all 0.2s;
+}
+.content__head {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s;
+}
+.card {
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 3rem;
+  margin: 1.3rem 0;
+  border-left: 5px solid #800080;
+  transition: all 0.2s;
+}
+.bulb {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.card__del {
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 2rem;
+  transition: all 0.3s;
+}
+.card__del:hover {
+  transform: rotateZ(-90deg);
+}
+.card__head {
+  font-size: 2.4rem;
+  font-weight: 500;
+  letter-spacing: 0.24rem;
+  margin-bottom: 1.3rem;
+  border-bottom: 1px solid #800080;
+  text-transform: capitalize;
+}
+.card__description {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 2.3rem;
+  transition: all 0.2s;
+  text-transform: capitalize;
+}
+.listForm {
+  width: 100%;
+  display: flex;
+  padding: 1rem 5rem;
+  background: rgba(0, 0, 0, 0.2);
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 1.6rem;
+  transition: all 0.2s;
 }
 
-.App-link {
-  color: #61dafb;
+label {
+  margin-bottom: 2rem;
+}
+input[type="text"],
+textarea {
+  width: 100%;
+  resize: none;
+  margin: 1rem 0;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.4s;
+}
+textarea {
+  font-family: sans-serif;
+}
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-bottom: 2px solid #800080;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.btn {
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: 0 auto;
+  padding: 2rem 4rem;
+  font-size: 2rem;
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+.btn:hover {
+  background: #800080;
+}
+
+.reverse-it {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/*  Light Theme ----------------------*/
+
+.light .content {
+  background: #fff;
+  color: #800080;
+}
+.light .content__head {
+  color: #800080;
+}
+.light .card,
+.listForm {
+  background: rgba(0, 0, 0, 0.1);
+}
+.light .bulb {
+  cursor: pointer;
+  text-shadow: 0 0 1.4rem yellow;
+}
+
+.light .card__description {
+  color: #222;
+}
+.light input[type="text"],
+.light textarea {
+  background: #fff;
+  color: #222;
+  transition: all 0.2s;
+}
+.light .btn {
+  background: #800080;
+}
+.light .btn:hover {
+  background: #530153;
+}
+
+/* ----------------------------*/
+
+@media only screen and (max-width: 600px) {
+  .content {
+    padding: 3rem 3rem;
   }
-  to {
-    transform: rotate(360deg);
+  .listForm {
+    padding: 1rem 3rem;
   }
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 53%;
+  }
+  .content {
+    padding: 3rem 1rem;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background: #222;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #800080;
+  border: 1px solid #222;
 }
